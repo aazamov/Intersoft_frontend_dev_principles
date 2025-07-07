@@ -54,8 +54,8 @@ Example of using (icons)
 Component name should start with "Icon"
 
 ```export interface IconProps extends SVGProps<SVGSVGElement> {}
-export const IconFacebook = (props?: IconProps) => (
-<svg {...props}> </svg>
+    export const IconFacebook = (props?: IconProps) => (
+      <svg {...props}> </svg>
 );
 ```
 
