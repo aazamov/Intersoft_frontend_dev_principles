@@ -1,8 +1,6 @@
-# Architecture
+# Intersoft tech Frontend development principe
 
-Using FSD
-
-Folder Meaning
+## Folder Meaning
 
 `app/` Entry setup: providers, routing, app layout  
  `shared/` Shared stuff: buttons, inputs, constants, helpers, hooks, schemas  
@@ -12,7 +10,7 @@ Folder Meaning
  `processes/` Full business flows (e.g. checkout, registration)  
  `pages/` Page components with layout and widget composition only
 
-Folder Rules
+## Folder Rules
 
 1. No business logic in pages. Pages are only for routing and UI composition.
 2. Use shared/ for universal things. Buttons, helpers, configs = put them in shared/.
@@ -21,64 +19,82 @@ Folder Rules
 5. widgets/ are big reusable parts for layout. Like: Header, Sidebar, VideoPlayer.
 6. Keep structure flat, not deep. Avoid nesting too deep; keep things easy to find.
 
-General Coding rules.
+## General Coding rules.
 
 1. Keep components small
 2. Write reusable components in shared/ui
-3. Move API calls to (api) folder
+3. Move API calls to `(api)` folder
 4. Write folder name fully and should be simple
-5. Absolute imports (@/components/xyz) not "../../../hell"
+5. Absolute imports `(@/components/xyz)` not `"../../../hell"`
 
-Naming rules
-Folders = "kebab-case" (user-profile/)
-File = "camelCase" (useUser.ts)
-Component = "PascalCase" (LoginForm.tsx)
-Hook = "use + PascalCase" (useLogin.tsx)
-Constants = "UPPER_SNAKE_CASE" (API_BASE_URL)
-api-requests = "kebab-case" (api/auth-requests.ts)
-api-hooks = "kebab-case" (api/auth-hooks.ts)
-icons-file = "kebab-case" (video-player-icons.tsx)
+## Naming rules
 
-Typescript
+`Folders` = "kebab-case" (user-profile/)
+
+`File` = "camelCase" (useUser.ts)
+
+`Component` = "PascalCase" (LoginForm.tsx)
+
+`Hook` = "use + PascalCase" (useLogin.tsx)
+
+`Constants` = "UPPER_SNAKE_CASE" (API_BASE_URL)
+
+`api-requests` = "kebab-case" (api/auth-requests.ts)
+
+`api-hooks` = "kebab-case" (api/auth-hooks.ts)
+
+`icons-file` = "kebab-case" (video-player-icons.tsx)
+
+## Typescript
+
 Use "DTO" for API types (LoginRequestDTO, UserResponseDTO)
 Use "PascalCase" for interfaces and types (User, Product, CartItem)
 Use "Props" for component props (LoginFormProps)
 Use "T" prefix for generic reusable types (TOption, TColor)
 
-Styling
-Tailwind css
-use "cn" for merging
-use this for Automatic Class Sorting "npm install -D prettier prettier-plugin-tailwindcss"
+## Styling
 
-Example of using (icons)
+Tailwind css
+Use "cn" for merging
+Use this for Automatic Class Sorting "npm install -D prettier prettier-plugin-tailwindcss"
+
+## Example of using (icons)
+
 Component name should start with "Icon"
 
 ```export interface IconProps extends SVGProps<SVGSVGElement> {}
     export const IconFacebook = (props?: IconProps) => (
       <svg {...props}> </svg>
-);
+    );
 ```
 
-packages
-State managers
-Context API
-Zustand
+## General Packages
 
-Form
-react-hook-form
-zod for validation
+### State managers
 
-requests
-tanstack-query, + axios
-use fetch in next js for ssr requests
+1. Context API
+2. Zustand
 
-localization
-next-intl (next)
-react-i18next (react)
+### Form
 
-Date formatter
-day.js
+1. react-hook-form
+2. zod for validation
 
-Extensions for VScode
-Prettier
-Code spell checker
+### Requests
+
+1. tanstack-query, + axios
+2. use fetch in next js for ssr requests
+
+### Localization
+
+1. next-intl (next)
+2. react-i18next (react)
+
+### Date formatter
+
+1. day.js
+
+## Extensions for VScode
+
+1. Prettier
+2. Code spell checker
