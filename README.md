@@ -57,6 +57,10 @@ Use "T" prefix for generic reusable types (TOption, TColor)
 Tailwind css
 Use "cn" for merging
 Use this for Automatic Class Sorting "npm install -D prettier prettier-plugin-tailwindcss"
+prettier config ``` {
+"plugins": ["prettier-plugin-tailwindcss"]
+}
+```
 
 ## Example of using (icons)
 
@@ -66,7 +70,7 @@ Component name should start with "Icon"
     export const IconFacebook = (props?: IconProps) => (
       <svg {...props}> </svg>
     );
-```
+````
 
 ## General Packages
 
@@ -98,3 +102,153 @@ Component name should start with "Icon"
 
 1. Prettier
 2. Code spell checker
+
+
+
+## examples of folder structure 
+
+``` 
+src/
+├── app/                            # App shell, routing, layouts
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── providers/ThemeProvider.tsx
+
+├── shared/                         # Reusable universal code
+│   ├── ui/                         # Common UI elements
+│   │   ├── Button.tsx
+│   │   ├── Modal.tsx
+│   │   └── Spinner.tsx
+│   ├── hooks/
+│   │   └── useDebounce.ts
+│   ├── utils/
+│   │   └── formatDate.ts
+│   ├── constants/
+│   │   └── api.ts
+│   └── types/
+│       └── common.ts
+
+├── entities/
+│   ├── user/
+│   │   ├── model/useUser.ts
+│   │   └── types.ts
+│   ├── video/
+│   │   ├── model/useVideo.ts
+│   │   └── types.ts
+│   ├── subscription/
+│   │   └── model/useSubscription.ts
+│   └── rating/
+│       └── model/useRating.ts
+
+├── features/                       # One action = One feature
+│   ├── auth/
+│   │   └── login-form/
+│   ├── video/
+│   │   ├── like-video/
+│   │   ├── rate-video/
+│   │   └── save-to-watchlist/
+│   ├── user/
+│   │   └── update-avatar/
+│   └── search/
+│       └── global-search-bar/
+
+├── widgets/                        # Large UI blocks
+│   ├── Header/
+│   ├── Footer/
+│   ├── VideoPlayer/
+│   ├── AuthModal/
+│   └── SearchOverlay/
+
+├── processes/                      # Full user/business flows
+│   ├── watch-video/
+│   │   ├── ui/WatchLayout.tsx
+│   │   ├── model/useWatchContext.ts
+│   │   └── lib/initWatch.ts
+│   ├── manage-subscription/
+│   └── user-settings/
+
+├── pages/
+│   ├── index.tsx                   # Homepage
+│   ├── watch/[id]/page.tsx        # Watch video page
+│   ├── profile/page.tsx
+│   └── settings/page.tsx
+
+```
+
+
+### shared 
+
+```
+shared/
+├── ui/
+│   ├── Button/
+│   ├── Modal/
+│   ├── Avatar/
+├── hooks/
+│   ├── useDebounce.ts
+│   ├── useClickOutside.ts
+├── lib/
+│   ├── formatDate.ts
+│   ├── request.ts                   # axios base instance
+├── config/
+│   ├── api.ts
+│   ├── auth.ts
+├── types/
+│   ├── pagination.ts
+│   ├── api-response.ts
+
+```
+
+## widget 
+
+``` 
+widgets/
+├── Header/
+│   ├── ui/Header.tsx
+│   ├── model/useHeaderSearch.ts
+├── Sidebar/
+├── CartPreview/
+├── UserDropdown/
+├── VideoPlayer/
+
+```
+
+## features 
+
+``` 
+features/
+├── auth/
+│   ├── login-form/
+│   ├── logout-button/
+├── organization/
+│   ├── invite-member/
+│   ├── switch-organization/
+├── product/
+│   ├── add-to-cart/
+│   ├── rate-product/
+├── file/
+│   ├── upload-file/
+│   ├── download-button/
+
+```
+
+## entities
+
+``` 
+entities/
+├── user/
+│   ├── model/useUser.ts
+│   ├── types.ts
+│   ├── api/userApi.ts
+├── product/
+│   ├── model/useProduct.ts
+│   ├── lib/parsePrice.ts
+│   ├── types.ts
+├── organization/
+│   ├── model/useOrganization.ts
+│   ├── lib/canEditOrg.ts
+├── file/
+│   ├── model/useFileUpload.ts
+│   ├── lib/getFileIcon.ts
+
+```
