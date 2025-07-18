@@ -2,22 +2,34 @@
 
 ## Folder Meaning
 
-`app/` Entry setup: providers, routing, app layout  
- `shared/` Shared stuff: buttons, inputs, constants, helpers, hooks, schemas  
- `entities/` Basic business models (User, Product, Video) with data & logic  
- `features/` Small pieces of logic/actions (e.g. login form, add to cart button)
-`widgets/` Ready UI blocks that show on pages (e.g. CartWidget, Header)  
- `processes/` Full business flows (e.g. checkout, registration)  
- `pages/` Page components with layout and widget composition only
+## Folder Structure
+
+- `app/`  
+  Application entry point: global providers, routing, and main app layout.
+
+- `pages/`  
+  Top-level page components. Only responsible for layout and composing widgets/features. No business logic.
+
+- `entities/`  
+  Core business models and logic (e.g. User, Product, Video). Contains types, state, and domain logic.
+
+- `features/`  
+  Focused, reusable units for a single user action or business process (e.g. login form, add to cart). Encapsulates UI + logic for that action.
+
+- `widgets/`  
+  Large, reusable UI blocks composed from features/entities (e.g. Header, Sidebar, CartWidget). Used to build pages.
+
+- `shared/`  
+  Universal, app-wide resources: UI components (buttons, inputs), hooks, helpers, constants, schemas, types, utilities, and libraries.
 
 ## Folder Rules
 
-1. No business logic in pages. Pages are only for routing and UI composition.
-2. Use shared/ for universal things. Buttons, helpers, configs = put them in shared/.
-3. entities/ hold core logic about the domain. Like: user, product, video.
-4. features/ are small interactive logic units. One feature = one user action (e.g. login, like post, add to cart).
-5. widgets/ are big reusable parts for layout. Like: Header, Sidebar, VideoPlayer.
-6. Keep structure flat, not deep. Avoid nesting too deep; keep things easy to find.
+1. `pages/` should only handle routing and UI composition. No business logic here.
+2. Place all universal, reusable resources (UI, hooks, helpers, constants, etc.) in `shared/`.
+3. `entities/` contains domain models and their logic/state. Each entity = one business concept.
+4. `features/` are small, focused units for a single user action or business process. One feature = one action.
+5. `widgets/` are large, reusable UI blocks made from features/entities, used to compose pages.
+6. Keep the folder structure flat. Avoid deep nesting to make things easy to find and maintain.
 
 ## General Coding rules.
 
@@ -60,7 +72,8 @@ Use this for Automatic Class Sorting "npm install -D prettier prettier-plugin-ta
 prettier config ``` {
 "plugins": ["prettier-plugin-tailwindcss"]
 }
-```
+
+````
 
 ## Example of using (icons)
 
@@ -103,11 +116,9 @@ Component name should start with "Icon"
 1. Prettier
 2. Code spell checker
 
+## examples of folder structure
 
-
-## examples of folder structure 
-
-``` 
+```
 src/
 ├── app/                            # App shell, routing, layouts
 │   ├── layout.tsx
@@ -175,8 +186,7 @@ src/
 
 ```
 
-
-### shared 
+### shared
 
 ```
 shared/
@@ -199,9 +209,9 @@ shared/
 
 ```
 
-## widget 
+## widget
 
-``` 
+```
 widgets/
 ├── Header/
 │   ├── ui/Header.tsx
@@ -213,9 +223,9 @@ widgets/
 
 ```
 
-## features 
+## features
 
-``` 
+```
 features/
 ├── auth/
 │   ├── login-form/
@@ -234,7 +244,7 @@ features/
 
 ## entities
 
-``` 
+```
 entities/
 ├── user/
 │   ├── model/useUser.ts
