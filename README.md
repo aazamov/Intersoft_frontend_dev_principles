@@ -10,14 +10,14 @@
 - `pages/`  
   Top-level page components. Only responsible for layout and composing widgets/features. No business logic.
 
-- `entities/`  
-  Core business models and logic (e.g. User, Product, Video). Contains types, state, and domain logic.
+- `widgets/`  
+  Large, reusable UI blocks composed from features/entities (e.g. Header, Sidebar, CartWidget). Used to build pages.
 
 - `features/`  
   Focused, reusable units for a single user action or business process (e.g. login form, add to cart). Encapsulates UI + logic for that action.
-
-- `widgets/`  
-  Large, reusable UI blocks composed from features/entities (e.g. Header, Sidebar, CartWidget). Used to build pages.
+  
+- `entities/`  
+  Core business models and logic (e.g. User, Product, Video). Contains types, state, and domain logic.
 
 - `shared/`  
   Universal, app-wide resources: UI components (buttons, inputs), hooks, helpers, constants, schemas, types, utilities, and libraries.
