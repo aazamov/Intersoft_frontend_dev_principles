@@ -59,21 +59,31 @@
 
 ## Typescript
 
-Use "DTO" for API types (LoginRequestDTO, UserResponseDTO)
-Use "PascalCase" for interfaces and types (User, Product, CartItem)
-Use "Props" for component props (LoginFormProps)
-Use "T" prefix for generic reusable types (TOption, TColor)
+_Use "DTO" for API types (LoginRequestDTO, UserResponseDTO)_
+
+_Use "PascalCase" for interfaces and types (User, Product, CartItem)_
+
+_Use "Props" for component props (LoginFormProps)_
+
+_Use "T" prefix for generic reusable types (TOption, TColor)_
 
 ## Styling
 
-Tailwind css
-Use "cn" for merging
-Use this for Automatic Class Sorting "npm install -D prettier prettier-plugin-tailwindcss"
-prettier config ``` {
-"plugins": ["prettier-plugin-tailwindcss"]
-}
+Use Tailwind css
 
-````
+Use `"cn"` for merging
+
+Use this for Automatic Class Sorting
+
+```npm install -D prettier prettier-plugin-tailwindcss```
+
+prettier config
+
+```
+  {
+  "plugins": ["prettier-plugin-tailwindcss"]
+  }
+```
 
 ## Example of using (icons)
 
@@ -83,7 +93,7 @@ Component name should start with "Icon"
     export const IconFacebook = (props?: IconProps) => (
       <svg {...props}> </svg>
     );
-````
+```
 
 ## API integration
 
