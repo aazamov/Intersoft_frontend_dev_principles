@@ -85,7 +85,7 @@ Component name should start with "Icon"
     );
 ````
 
-## requests
+## API integration
 
 Use axios for client requests
 
