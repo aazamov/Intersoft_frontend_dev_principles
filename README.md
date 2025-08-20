@@ -15,7 +15,7 @@
 
 - `features/`  
   Focused, reusable units for a single user action or business process (e.g. login form, add to cart). Encapsulates UI + logic for that action.
-  
+
 - `entities/`  
   Core business models and logic (e.g. User, Product, Video). Contains types, state, and domain logic.
 
@@ -25,10 +25,10 @@
 ## Folder Rules
 
 1. `pages/` should only handle routing and UI composition. No business logic here.
-2. Place all universal, reusable resources (UI, hooks, helpers, constants, etc.) in `shared/`.
-3. `entities/` contains domain models and their logic/state. Each entity = one business concept.
-4. `features/` are small, focused units for a single user action or business process. One feature = one action.
-5. `widgets/` are large, reusable UI blocks made from features/entities, used to compose pages.
+2. `widgets/` are large, reusable UI blocks made from features/entities, used to compose pages.
+3. `features/` are small, focused units for a single user action or business process. One feature = one action.
+4. `entities/` contains domain models and their logic/state. Each entity = one business concept.
+5. Place all universal, reusable resources (UI, hooks, helpers, constants, etc.) in `shared/`.
 6. Keep the folder structure flat. Avoid deep nesting to make things easy to find and maintain.
 
 ## General Coding rules.
@@ -84,6 +84,50 @@ Component name should start with "Icon"
       <svg {...props}> </svg>
     );
 ````
+
+## requests
+
+Use axios for client requests
+
+#### request should be like this
+
+```
+export const getDataRequests = async (): Promise<Type[]> => {
+  try {
+    const { data } = await baseAxios.get<Type[]>('endpoint');
+    return data;
+  } catch (error) {
+    return [];
+  }
+};
+```
+
+#### hook for request should be like this
+
+```
+export const useGetData = () => {
+  const lang = useLang();
+
+  return useQuery({
+    queryKey: keyList.profile(lang),
+    queryFn: () => requestList.getDataRequests(),
+  });
+};
+```
+
+#### query keys should be like this
+
+`https://github.com/techwithmanuel/react-query-key-manager`
+
+```
+import { QueryKeyManager } from "react-query-key-manager";
+
+export const keyList = QueryKeyManager.create("example", {
+  profile: (lang: string) => ["user", "profile", "lang"],
+  settings: (userId: string) => ["user", "settings", userId],
+});
+
+```
 
 ## General Packages
 
